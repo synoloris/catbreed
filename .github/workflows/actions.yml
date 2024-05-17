@@ -1,0 +1,31 @@
+name: Upload Model (.txt and .params) to Azure Blob Storage
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Upload .txt to Azure Blob Storage
+      uses: bacongobbler/azure-blob-storage-upload@main
+      with:
+        source_dir: 'models'
+        container_name: 'projekt2'
+        connection_string: ${{secrets.AZURE_STORAGE_CONNECTION_STRING}}
+        extra_args: '--pattern *.txt'
+        overwrite: 'true'
+
+    - name: Upload .params to Azure Blob Storage
+      uses: bacongobbler/azure-blob-storage-upload@main
+      with:
+        source_dir: 'models'
+        container_name: 'projekt2'
+        connection_string: ${{secrets.AZURE_STORAGE_CONNECTION_STRING}}
+        extra_args: '--pattern *.params'
+        overwrite: 'true'
