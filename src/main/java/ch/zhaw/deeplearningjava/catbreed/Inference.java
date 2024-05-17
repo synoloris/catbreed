@@ -66,7 +66,7 @@ public class Inference {
     private void downloadModelFiles() {
         try {
             // Connect to Azure Blob Storage
-            String containerName = "catbreed";
+            String containerName = "model";
             String accessKey = System.getenv("AZURE_STORAGE_CONNECTION_STRING");
 
             BlobServiceClientBuilder serviceClientBuilder = new BlobServiceClientBuilder()
