@@ -9,5 +9,5 @@ COPY --from=build /usr/src/app/target/catbreed-0.0.1-SNAPSHOT.jar /usr/src/app/c
 
 COPY azure-model /usr/src/app/azure-model
 
-EXPOSE 8080
+EXPOSE 8082
 CMD ["java","-jar","/usr/src/app/target/catbreed-0.0.1-SNAPSHOT.jar"]

@@ -29,7 +29,7 @@ import javax.imageio.ImageIO;
 public class Inference {
 
     private static final String MODEL_DIRECTORY = "azure-model";
-    private static final String PARAMS_FILE = "cat-classifier-0010.params";
+    private static final String PARAMS_FILE = "catbreed-classifier-0010.params";
     private static final String SYNSET_FILE = "synset.txt";
 
     Predictor<Image, Classifications> predictor;
@@ -67,7 +67,7 @@ public class Inference {
         try {
             // Connect to Azure Blob Storage
             String containerName = "catbreed";
-            String accessKey = ("");
+            String accessKey = System.getenv("AZURE_STORAGE_CONNECTION_STRING");
 
             BlobServiceClientBuilder serviceClientBuilder = new BlobServiceClientBuilder()
                     .connectionString(accessKey);
