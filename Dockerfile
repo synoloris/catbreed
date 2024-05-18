@@ -23,7 +23,7 @@ COPY --from=build /usr/src/app/target/catbreed-0.0.1-SNAPSHOT.jar /usr/src/app/c
 COPY azure-model /usr/src/app/azure-model
 
 # Exponiere den Port
-EXPOSE 8082
+EXPOSE 8080
 
 # Startbefehl
 CMD ["java", "-jar", "/usr/src/app/catbreed-0.0.1-SNAPSHOT.jar"]
